@@ -1,0 +1,21 @@
+#top-header
+  = link_to "netflix", "#", id: "logo"
+  %nav
+    %ul.nav.navbar-nav
+      %li= link_to "Videos",   "#"
+      %li= link_to "My Queue", "#"
+      %li= link_to "People",   "#"
+    %ul.nav.navbar-nav.navbar-right
+      %li.dropdown
+        %a.dropdown-toggle{ "data-toggle" => "dropdown", href: "#" }
+          Welcome, Philip J. Fry
+          %span.caret
+        %ul.dropdown-menu{ role: "menu" }
+          %li
+            = link_to "Account", "#"
+            = link_to "Plan and Billing", "#"
+            = link_to "Sign Out", "#"
+    %form.navbar-form.navbar-right{ action: "" }
+      .form-group
+        %input.form-control{ :type => "text", placeholder: "Search for videos here" }
+      %button.btn.btn-default{ type: "submit" } Search

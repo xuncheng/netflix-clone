@@ -1,0 +1,5 @@
+# http://ddollar.github.com/foreman/
+ASSET_HOST=localhost:4000
+HOST=localhost:4000
+RACK_ENV=development
+SECRET_KEY_BASE=development_secret

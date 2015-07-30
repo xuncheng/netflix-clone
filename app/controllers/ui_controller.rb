@@ -1,0 +1,2 @@
+class UIController < ApplicationController
+end
