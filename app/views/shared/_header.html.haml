@@ -1,8 +1,8 @@
 #top-header
-  = link_to "netflix", "#", id: "logo"
+  = link_to "netflix", root_url, id: "logo"
   %nav
     %ul.nav.navbar-nav
-      %li= link_to "Videos",   "#"
+      %li= link_to "Videos",   home_path
       %li= link_to "My Queue", "#"
       %li= link_to "People",   "#"
     %ul.nav.navbar-nav.navbar-right
@@ -15,7 +15,7 @@
             = link_to "Account", "#"
             = link_to "Plan and Billing", "#"
             = link_to "Sign Out", "#"
-    %form.navbar-form.navbar-right{ action: "" }
+    = form_tag search_videos_path, class: "navbar-form navbar-right" do
       .form-group
-        %input.form-control{ :type => "text", placeholder: "Search for videos here" }
-      %button.btn.btn-default{ type: "submit" } Search
+        = text_field_tag :search_term, nil, placeholder: "Search for videos here", class: "form-control"
+      = button_tag "Search", class: "btn btn-default"
