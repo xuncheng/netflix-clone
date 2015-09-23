@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150730080000) do
+ActiveRecord::Schema.define(version: 20150730084746) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name", null: false
+  end
 
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer  "priority",   default: 0, null: false
@@ -28,5 +32,16 @@ ActiveRecord::Schema.define(version: 20150730080000) do
   end
 
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority"
+
+  create_table "videos", force: :cascade do |t|
+    t.integer "category_id"
+    t.string  "title",           null: false
+    t.text    "description"
+    t.string  "small_cover_url", null: false
+    t.string  "large_cover_url"
+  end
+
+  add_index "videos", ["category_id"], name: "index_videos_on_category_id"
+  add_index "videos", ["title"], name: "index_videos_on_title"
 
 end
