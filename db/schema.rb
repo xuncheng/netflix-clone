@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150730084746) do
+ActiveRecord::Schema.define(version: 20150923083947) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name", null: false
@@ -34,14 +34,17 @@ ActiveRecord::Schema.define(version: 20150730084746) do
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority"
 
   create_table "videos", force: :cascade do |t|
-    t.integer "category_id"
-    t.string  "title",           null: false
-    t.text    "description"
-    t.string  "small_cover_url", null: false
-    t.string  "large_cover_url"
+    t.integer  "category_id"
+    t.string   "title",           null: false
+    t.text     "description"
+    t.string   "small_cover_url", null: false
+    t.string   "large_cover_url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "videos", ["category_id"], name: "index_videos_on_category_id"
+  add_index "videos", ["created_at"], name: "index_videos_on_created_at"
   add_index "videos", ["title"], name: "index_videos_on_title"
 
 end
